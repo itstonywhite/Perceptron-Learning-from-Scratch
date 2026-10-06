@@ -43,6 +43,21 @@ class Perceptron:
             self : object
         """
         
+        rgen = np.random.RandomState(self.random_state)
+        self.w_ = rgen.normal(loc=0.0, scale=0.01, size=X.shape[1])
+        self.b_ = np.float_(0.)
+        self.errors_ = []
+        
+        for _ in range(self.n_iters):
+            errors = 0
+            for xi, target in zip(X, y):
+                update = self.eta * (target - self.predict(xi)) # !TODO predict method
+                self.w_ += update * xi
+                self.b_ += update
+                errors += int(update != 0.0)
+            self.errors_.append(errors)
+        return self
+            
 
 
 
