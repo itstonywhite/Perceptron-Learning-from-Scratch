@@ -22,6 +22,11 @@ class Perceptron:
         errors_ : list
             Number of misclassifications (updates) in each epoch.
     """
+    
+    def __init__(self, eta=0.01, n_iters=50, random_state=1):
+        self.eta = eta
+        self.n_iters = n_iters
+        self.random_state = random_state
 
 
 
