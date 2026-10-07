@@ -73,38 +73,6 @@ class Perceptron:
         return np.where(self.net_input(X) >= 0.0, 1, 0)
 
 
-# Training a perceptron model on the Iris dataset
-
-# Loading the dataset
-df = pd.read_csv('./iris.txt', header=None, encoding='utf-8')
-
-# Select setosa and versicolor
-y = df.iloc[0:100, 4].values
-y = np.where(y == 'Iris-setosa', 0, 1)
-
-# Extract the sepal length and petal length
-X = df.iloc[0:100, [0, 2]].values
-
-# Plot data
-plt.scatter(X[0:50, 0], X[0:50, 1], color='red', marker='o', label='Setosa')
-plt.scatter(X[50:100, 0], X[50:100, 1], color='blue', marker='s', label='Versicolor')
-plt.title('Data Plot')
-plt.xlabel('Sepal length [cm]')
-plt.ylabel('Petal length [cm]')
-plt.legend(loc='upper left')
-plt.show() # Renders the plot
-
-# Training perceptron algorithm on the Iris data subset
-ppn = Perceptron(eta=0.1, n_iters=10)
-ppn.fit(X, y)
-
-# Plotting the misclassification error for each epoch
-plt.plot(range(1, len(ppn.errors_) + 1), ppn.errors_, marker='o')
-plt.title('Misclassification Errors')
-plt.xlabel('Epochs')
-plt.ylabel('Number of updates')
-plt.show() # Renders the plot
-
 # visualizing the decision boundaries for two-dimensional datasets
 def plot_decision_regions(X, y, classifier, resolution=0.02):
     """
@@ -152,13 +120,51 @@ def plot_decision_regions(X, y, classifier, resolution=0.02):
                     marker=markers[idx],
                     label=f'Class {cl}',
                     edgecolors='black')
-    
-# Contour plot
-plot_decision_regions(X, y, classifier=ppn)
-plt.title('Perceptron’s Decision Regions')
-plt.xlabel('Sepal length [cm]')
-plt.ylabel('Petal length [cm]')
-plt.legend(loc='upper left')
-plt.show() # Renders the plot
+
+def main():
+    # Training a perceptron model on the Iris dataset
+
+    # Loading the dataset
+    df = pd.read_csv('./iris.txt', header=None, encoding='utf-8')
+
+    # Select setosa and versicolor
+    y = df.iloc[0:100, 4].values
+    y = np.where(y == 'Iris-setosa', 0, 1)
+
+    # Extract the sepal length and petal length
+    X = df.iloc[0:100, [0, 2]].values
+
+    # Plot data
+    plt.scatter(X[0:50, 0], X[0:50, 1], color='red', marker='o', label='Setosa')
+    plt.scatter(X[50:100, 0], X[50:100, 1], color='blue', marker='s', label='Versicolor')
+    plt.title('Data Plot')
+    plt.xlabel('Sepal length [cm]')
+    plt.ylabel('Petal length [cm]')
+    plt.legend(loc='upper left')
+    plt.show() # Renders the plot
+
+    # Training perceptron algorithm on the Iris data subset
+    ppn = Perceptron(eta=0.1, n_iters=10)
+    ppn.fit(X, y)
+
+    # Plotting the misclassification error for each epoch
+    plt.plot(range(1, len(ppn.errors_) + 1), ppn.errors_, marker='o')
+    plt.title('Misclassification Errors')
+    plt.xlabel('Epochs')
+    plt.ylabel('Number of updates')
+    plt.show() # Renders the plot
+
+    # Perceptron’s Decision Regions Contour plot
+    plot_decision_regions(X, y, classifier=ppn)
+    plt.title('Perceptron’s Decision Regions')
+    plt.xlabel('Sepal length [cm]')
+    plt.ylabel('Petal length [cm]')
+    plt.legend(loc='upper left')
+    plt.show() # Renders the plot
+
+
+if __name__ == "__main__":
+    main()
+
 
 # Tony White ✍️
