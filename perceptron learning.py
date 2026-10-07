@@ -84,3 +84,14 @@ y = np.where(y == 'Iris-setosa', 0, 1)
 
 # Extract the sepal length and petal length
 X = df.iloc[0:100, [0, 2]].values
+
+# Plot data
+plt.scatter(X[0:50, 0], X[0:50, 1], color='red', marker='o', label='Setosa')
+plt.scatter(X[50:100, 0], X[50:100, 1], color='blue', marker='s', label='Versicolor')
+plt.xlabel('Sepal length [cm]')
+plt.ylabel('Petal length [cm]')
+plt.legend(loc='upper left')
+plt.show() # Renders the plot
+
+
+
