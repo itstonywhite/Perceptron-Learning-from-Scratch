@@ -107,6 +107,26 @@ plt.show() # Renders the plot
 
 # visualizing the decision boundaries for two-dimensional datasets
 def plot_decision_regions(X, y, classifier, resolution=0.02):
+    """
+    Plot the decision regions of a classifier for 2D data.
+
+    Parameters:
+        1. X : array-like, shape = [n_examples, 2]
+            Feature matrix. Must have exactly two columns, since
+            the plot is two-dimensional.
+        2. y : array-like, shape = [n_examples]
+            Class labels. At most 5 distinct classes.
+        3. classifier : object
+            Fitted model with a predict(X) method that accepts an
+            array of shape [n_points, 2] and returns class labels.
+        4. resolution : float, optional (default=0.02)
+            Grid step size in feature units. Smaller values give a
+            smoother boundary but need more predict calls.
+
+    Returns:
+        None
+    """
+    
     # Setup marker generator and color map
     markers = ('o', 's', '^', 'v', '<')
     colors = ('red', 'blue', 'lightgreen', 'gray', 'cyan')
