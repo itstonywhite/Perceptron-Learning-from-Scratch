@@ -1,7 +1,9 @@
 # Importing dependencies & packages
-import numpy as np
 import os
+import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 # Object-oriented Perceptron API
 class Perceptron:
@@ -72,6 +74,13 @@ class Perceptron:
 
 
 # Training a perceptron model on the Iris dataset
-s = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
-df = pd.read_csv(s, header=None, encoding='utf-8')
-print(df.tail())
+
+# Loading the dataset
+df = pd.read_csv('./iris.txt', header=None, encoding='utf-8')
+
+# Select setosa and versicolor
+y = df.iloc[0:100, 4].values
+y = np.where(y == 'Iris-setosa', 0, 1)
+
+
+
