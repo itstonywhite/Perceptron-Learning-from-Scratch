@@ -89,6 +89,7 @@ X = df.iloc[0:100, [0, 2]].values
 # Plot data
 plt.scatter(X[0:50, 0], X[0:50, 1], color='red', marker='o', label='Setosa')
 plt.scatter(X[50:100, 0], X[50:100, 1], color='blue', marker='s', label='Versicolor')
+plt.title('Data Plot')
 plt.xlabel('Sepal length [cm]')
 plt.ylabel('Petal length [cm]')
 plt.legend(loc='upper left')
@@ -100,6 +101,7 @@ ppn.fit(X, y)
 
 # Plotting the misclassification error for each epoch
 plt.plot(range(1, len(ppn.errors_) + 1), ppn.errors_, marker='o')
+plt.title('Misclassification Errors')
 plt.xlabel('Epochs')
 plt.ylabel('Number of updates')
 plt.show() # Renders the plot
@@ -134,6 +136,7 @@ def plot_decision_regions(X, y, classifier, resolution=0.02):
     
 # Contour plot
 plot_decision_regions(X, y, classifier=ppn)
+plt.title('Perceptron’s Decision Regions')
 plt.xlabel('Sepal length [cm]')
 plt.ylabel('Petal length [cm]')
 plt.legend(loc='upper left')
