@@ -82,5 +82,5 @@ df = pd.read_csv('./iris.txt', header=None, encoding='utf-8')
 y = df.iloc[0:100, 4].values
 y = np.where(y == 'Iris-setosa', 0, 1)
 
-
-
+# Extract the sepal length and petal length
+X = df.iloc[0:100, [0, 2]].values
