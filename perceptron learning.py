@@ -91,9 +91,17 @@ plt.scatter(X[50:100, 0], X[50:100, 1], color='blue', marker='s', label='Versico
 plt.xlabel('Sepal length [cm]')
 plt.ylabel('Petal length [cm]')
 plt.legend(loc='upper left')
+# plt.show() # Renders the plot
+
+# Training perceptron algorithm on the Iris data subset
+ppn = Perceptron(eta=0.1, n_iters=10)
+ppn.fit(X, y)
+
+# Plotting the misclassification error for each epoch
+plt.plot(range(1, len(ppn.errors_) + 1), ppn.errors_, marker='o')
+plt.xlabel('Epochs')
+plt.ylabel('Number of updates')
 plt.show() # Renders the plot
-
-
 
 
 
