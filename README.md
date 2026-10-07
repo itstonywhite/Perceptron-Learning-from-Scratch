@@ -5,7 +5,7 @@
 [![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-150458.svg)](https://pandas.pydata.org/)
 [![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557c.svg)](https://matplotlib.org/)
 
-A from-scratch implementation of the **Perceptron Learning Algorithm** using Python and NumPy, designed to demonstrate the core mechanics of a binary linear classifier without relying on a pre-built machine learning implementation.
+An implementation of the **Perceptron Learning Algorithm** using Python and NumPy, designed to demonstrate the core mechanics of a binary linear classifier without relying on a pre-built machine learning implementation.
 
 The model is implemented using an **Object-Oriented Programming (OOP)** approach and trained on a binary subset of the **Iris dataset**. The project also visualizes the dataset, training errors across epochs, and the final decision regions learned by the Perceptron.
 
@@ -15,7 +15,7 @@ The model is implemented using an **Object-Oriented Programming (OOP)** approach
 
 The **Perceptron** is one of the foundational algorithms in machine learning and represents one of the earliest forms of an artificial neural network.
 
-In this project, I implemented the complete Perceptron learning process from scratch, including:
+In this project, I implemented the complete Perceptron learning process, including:
 
 - Random weight initialization
 - Net input calculation
