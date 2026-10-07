@@ -3,6 +3,7 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
 
 
 # Object-oriented Perceptron API
@@ -13,7 +14,7 @@ class Perceptron:
     Parameters:
         1. eta : float
             Learning rate (between 0.0 and 1.0)
-        2. n-iters : int
+        2. n_iters : int
             Passes over the training dataset.
         3. random_state : int
             Random number generator seed for random
@@ -22,7 +23,7 @@ class Perceptron:
     Attributes:
         1. w_ : 1d-array
             Weights after fitting.
-        2. b_ : Scaler
+        2. b_ : Scalar
             Bias unit after fitting.
         
         errors_ : list
@@ -39,8 +40,8 @@ class Perceptron:
         Fit training data.
         
         Parameters:
-            1. X : {array-like}, shape = [n_example, n_features]
-                Training vectors, where n_example is the number of
+            1. X : {array-like}, shape = [n_examples, n_features]
+                Training vectors, where n_examples is the number of
                 examples and n_features is the number of features.
             2. y : array-like, shape = [n_examples]
                 Target values.
@@ -91,7 +92,7 @@ plt.scatter(X[50:100, 0], X[50:100, 1], color='blue', marker='s', label='Versico
 plt.xlabel('Sepal length [cm]')
 plt.ylabel('Petal length [cm]')
 plt.legend(loc='upper left')
-# plt.show() # Renders the plot
+plt.show() # Renders the plot
 
 # Training perceptron algorithm on the Iris data subset
 ppn = Perceptron(eta=0.1, n_iters=10)
